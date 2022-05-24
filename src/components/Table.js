@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const TableHeader = () => {
   // boilerplate table header functional component
@@ -10,33 +10,36 @@ const TableHeader = () => {
         <th>Remove</th>
       </tr>
     </thead>
-  )
+  );
 }
 
-const TableBody = (props) => {
+const TableBody=props=> {
   // boilerplate table body functional component
   // we use Array.map to create table rows from LinkData passed via props
-  const rows = props.linkData.map((row, index) => {
+  const rows = props.linkData.map((row,index) => {
     return (
       <tr key={index}>
         <td>{row.name}</td>
-        <td>
-          <a href={row.URL}>{row.URL}</a>
-        </td>
-        <td>
-          <button onClick={() => props.removeLink(index)}>Delete</button>
-        </td>
+        <td><a href={row.URL}>{row.URL}</a></td>
+        <td><button onClick={() => props.removeLink(index)}>Delete</button></td>
       </tr>
     )
-  })
+  });
 
-  return <tbody>{rows}</tbody>
+  return <tbody>{rows}</tbody>;
 }
 
-const Table = (props) => {
-  {
+const Table=(props)=> {
+  // eslint-disable-next-line no-lone-blocks
+  return(
+   <div>
+     {TableHeader()}
+     {TableBody(props)}
+   </div>
+  )
+  
     /*TODO - return <table> component, TableHeader and TableBody  and pass props!*/
-  }
+  
 }
 
-export default Table
+export default Table;
